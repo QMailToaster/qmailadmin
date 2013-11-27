@@ -1,0 +1,14 @@
+--- qmailadmin-1.2.16/configure.in	2011-02-22 07:45:47.000000000 -0700
++++ qmailadmin-1.2.16-patched/configure.in	2013-11-11 21:17:27.020006823 -0700
+@@ -71,9 +71,9 @@
+     ] )
+ AC_SUBST(vpopmaildir)
+ 
+-auth_incs=`cat $vpopmaildir/etc/inc_deps`
++auth_incs=`cat $vpopmaildir/inc_deps`
+ AC_SUBST(auth_incs)
+-auth_libs=`cat $vpopmaildir/etc/lib_deps`
++auth_libs=`cat $vpopmaildir/lib_deps`
+ AC_SUBST(auth_libs)
+ 
+ htmldir=""

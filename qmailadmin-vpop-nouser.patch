@@ -1,0 +1,11 @@
+--- qmailadmin-1.2.16/Makefile.am	2011-02-22 07:45:48.000000000 -0700
++++ qmailadmin-1.2.16-patched/Makefile.am	2013-11-11 21:49:33.974993552 -0700
+@@ -14,7 +14,7 @@
+ #
+ # Install qmailadmin setuid to @vpopuser@
+ #
+-INSTALL_PROGRAM=${INSTALL} -o @vpopuser@ -m 6755 -g @vpopgroup@ $(AM_INSTALL_PROGRAM_FLAGS)
++INSTALL_PROGRAM=${INSTALL} -m 6755 $(AM_INSTALL_PROGRAM_FLAGS)
+ INSTALL_STRIP_PROGRAM=${INSTALL_PROGRAM} -s
+ 
+ bindir=@cgibindir@
