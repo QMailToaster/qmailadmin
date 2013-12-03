@@ -121,7 +121,8 @@ pushd %{buildroot}%{_datadir}/%{name}
   ln -s qmailadmin index.cgi
 popd
 
-install -Dp %{_sourcedir}/qmailadmin.module  %{buildroot}%{basedir}/include
+install -Dp %{_sourcedir}/qmailadmin.module \
+      %{buildroot}%{basedir}/include/qmailadmin.module
 
 install -d %{buildroot}%{_datadir}/%{name}/images/help
 cp -R $RPM_BUILD_DIR/%{name}-%{version}/%{name}-help-%{helpver}/* \
