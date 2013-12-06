@@ -1,5 +1,5 @@
-Name:           qmailadmin
-Summary:	Web Administration for qmail-toaster
+Name:           qmailadmin-spambox
+Summary:	Domain Administration for QMailToaster, with spambox feature
 Version:	1.2.16
 %define helpver 1.0.8
 Release:	0%{?dist}
@@ -23,8 +23,9 @@ Requires:	vpopmail-toaster
 Requires:	control-panel
 Requires:	autorespond
 Requires:	ezmlm
+Requires:	maildrop
 Obsoletes:	qmailadmin-toaster
-Conflicts:	qmailadmin-spambox
+Conflicts:	qmailadmin
 BuildRoot:      %{_topdir}/BUILDROOT/qmailadmin-%{version}-%{release}.%{_arch}
 
 %define debug_package %{nil}
@@ -62,6 +63,7 @@ support via the users language settings on their browser.
    mysql for ezmlm = no
               help = yes
       modify quota = yes
+       modify spam = yes
    domain autofill = no
  catchall accounts = yes
  trivial passwords = yes
@@ -101,7 +103,9 @@ export CC="gcc %{ccflags}"
       --enable-maxusersperpage=12 \
       --enable-maxaliasesperpage=12 \
       --enable-modify-quota=y \
+      --enable-modify-spam=y \
       --enable-qmaildir=%{qdir} \
+      --enable-spam-command="|/var/qmail/bin/preline /usr/bin/maildrop -A 'Content-Filter: maildrop-mailfilter' /etc/mail/mailfilter" \
       --enable-vpopgroup=vchkpw \
       --enable-vpopmaildir=/etc/vpopmail \
       --enable-vpopuser=vpopmail
