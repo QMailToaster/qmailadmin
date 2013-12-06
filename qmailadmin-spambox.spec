@@ -72,7 +72,7 @@ support via the users language settings on their browser.
 %prep
 #----------------------------------------------------------------------------
 
-%setup  -q
+%setup  -q -n qmailadmin-%{version}
 %patch0 -p1
 %patch1 -p1
 
