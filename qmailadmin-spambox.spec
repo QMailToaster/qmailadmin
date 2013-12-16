@@ -56,7 +56,7 @@ support via the users language settings on their browser.
          image URL = /qmailadmin/images
       template dir = /usr/share/qmailadmin
          qmail dir = /var/qmail
-      vpopmail dir = /home/vpopmail
+      vpopmail dir = /etc/libvpopmail
    autorespond dir = /usr/bin
          ezmlm dir = /usr/bin
          ezmlm idx = yes
@@ -107,7 +107,7 @@ export CC="gcc %{ccflags}"
       --enable-qmaildir=%{qdir} \
       --enable-spam-command="|/var/qmail/bin/preline /usr/bin/maildrop -A 'Content-Filter: maildrop-mailfilter' /etc/mail/mailfilter" \
       --enable-vpopgroup=vchkpw \
-      --enable-vpopmaildir=/etc/vpopmail \
+      --enable-vpopmaildir=/etc/libvpopmail \
       --enable-vpopuser=vpopmail
 
 %{__make}
