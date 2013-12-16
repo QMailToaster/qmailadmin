@@ -13,13 +13,13 @@ Patch0:         qmailadmin-vpop-devel.patch
 Patch1:         qmailadmin-vpop-nouser.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	vpopmail-devel
 BuildRequires:  bzip2
+BuildRequires:	libvpopmail-static
 BuildRequires:	mysql-devel >= 5.0.22
 Requires:	mysql >= 5.0.22
 Requires:	httpd >= 2.2.3
-Requires:	qmail-toaster
-Requires:	vpopmail-toaster
+Requires:	qmail
+Requires:	vpopmail
 Requires:	control-panel
 Requires:	autorespond
 Requires:	ezmlm
