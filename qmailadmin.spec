@@ -108,9 +108,9 @@ export CC="gcc %{ccflags}"
 
 %{__make}
 
-cp %{SOURCE1} $RPM_BUILD_DIR/qmailadmin-%{version}/help.tar.bz2
-tar xzvf $RPM_BUILD_DIR/qmailadmin-%{version}/help.tar.bz2
-rm -f $RPM_BUILD_DIR/qmailadmin-%{version}/help.tar.bz2
+cp %{SOURCE1} %{_builddir}/qmailadmin-%{version}/help.tar.bz2
+tar xzvf      %{_builddir}/qmailadmin-%{version}/help.tar.bz2
+rm -f         %{_builddir}/qmailadmin-%{version}/help.tar.bz2
 
 #------------------------------------------------------------------------------
 %install
@@ -122,11 +122,10 @@ pushd %{buildroot}%{_datadir}/qmailadmin
   ln -s qmailadmin index.cgi
 popd
 
-install -Dp %{_sourcedir}/qmailadmin.module \
-      %{buildroot}%{basedir}/include/qmailadmin.module
+install -Dp %{SOURCE2} %{buildroot}%{basedir}/include/qmailadmin.module
 
 install -d %{buildroot}%{_datadir}/qmailadmin/images/help
-cp -R $RPM_BUILD_DIR/qmailadmin-%{version}/qmailadmin-help-%{helpver}/* \
+cp -R %{_builddir}/qmailadmin-%{version}/qmailadmin-help-%{helpver}/* \
       %{buildroot}%{_datadir}/qmailadmin/images/help/
 
 #----------------------------------------------------------------------------
