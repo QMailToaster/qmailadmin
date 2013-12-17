@@ -113,7 +113,7 @@ export CC="gcc %{ccflags}"
 %{__make}
 
 cp %{SOURCE1} %{_builddir}/qmailadmin-%{version}/help.tar.bz2
-tar xzvf      %{_builddir)/qmailadmin-%{version}/help.tar.bz2
+tar xzvf      %{_builddir}/qmailadmin-%{version}/help.tar.bz2
 rm -f         %{_builddir}/qmailadmin-%{version}/help.tar.bz2
 
 #------------------------------------------------------------------------------
