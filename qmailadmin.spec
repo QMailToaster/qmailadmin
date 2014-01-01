@@ -1,31 +1,33 @@
-Name:           qmailadmin
-Summary:	Web Administration for qmail-toaster
-Version:	1.2.16
+Name:      qmailadmin
+Summary:   Web Administration for qmail-toaster
+Version:   1.2.16
 %define helpver 1.0.8
-Release:	0%{?dist}
-License:	GPL
-Group:		Networking/Other
-URL:		http://www.inter7.com/index.php?page=qmailadmin
-Source0:	http://downloads.sourceforge.net/project/qmailadmin/qmailadmin-devel/qmailadmin-%{version}.tar.gz
-Source1:	http://www.inter7.com/devel/qmailadmin-help-1.0.8.tar.gz
-Source2:	qmailadmin.module
-Patch0:         qmailadmin-vpop-devel.patch
-Patch1:         qmailadmin-vpop-nouser.patch
+Release:   0%{?dist}
+License:   GPL
+Group:     Networking/Other
+Vendor:    QmailToaster
+Packager:  Eric Shubert <qmt-build@datamatters.us>
+URL:       http://www.inter7.com/index.php?page=qmailadmin
+Source0:   http://downloads.sourceforge.net/project/qmailadmin/qmailadmin-devel/qmailadmin-%{version}.tar.gz
+Source1:   http://www.inter7.com/devel/qmailadmin-help-1.0.8.tar.gz
+Source2:   qmailadmin.module
+Patch0:    qmailadmin-vpop-devel.patch
+Patch1:    qmailadmin-vpop-nouser.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:  bzip2
 BuildRequires:	libvpopmail-static
 BuildRequires:	mysql-devel >= 5.0.22
-Requires:	mysql >= 5.0.22
-Requires:	httpd >= 2.2.3
-Requires:	qmail
-Requires:	vpopmail
-Requires:	control-panel
-Requires:	autorespond
-Requires:	ezmlm
-Obsoletes:	qmailadmin-toaster
-Conflicts:	qmailadmin-spambox
-BuildRoot:      %{_topdir}/BUILDROOT/qmailadmin-%{version}-%{release}.%{_arch}
+Requires:  mysql >= 5.0.22
+Requires:  httpd >= 2.2.3
+Requires:  qmail
+Requires:  vpopmail
+Requires:  control-panel
+Requires:  autorespond
+Requires:  ezmlm
+Obsoletes: qmailadmin-toaster
+Conflicts: qmailadmin-spambox
+BuildRoot: %{_topdir}/BUILDROOT/qmailadmin-%{version}-%{release}.%{_arch}
 
 %define debug_package %{nil}
 %define apacheuser    apache
@@ -126,7 +128,7 @@ install -Dp %{SOURCE2} %{buildroot}%{basedir}/include/qmailadmin.module
 
 install -d %{buildroot}%{_datadir}/qmailadmin/images/help
 cp -R %{_builddir}/qmailadmin-%{version}/qmailadmin-help-%{helpver}/* \
-      %{buildroot}%{_datadir}/qmailadmin/images/help/
+           %{buildroot}%{_datadir}/qmailadmin/images/help/
 
 #----------------------------------------------------------------------------
 %clean
