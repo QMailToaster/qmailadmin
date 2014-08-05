@@ -2,7 +2,7 @@ Name:      qmailadmin
 Summary:   Web Administration for qmail-toaster
 Version:   1.2.16
 %define helpver 1.0.8
-Release:   0%{?dist}
+Release:   1%{?dist}
 License:   GPL
 Group:     Networking/Other
 Vendor:    QmailToaster
@@ -13,6 +13,7 @@ Source1:   http://www.inter7.com/devel/qmailadmin-help-1.0.8.tar.gz
 Source2:   qmailadmin.module
 Patch0:    qmailadmin-vpop-devel.patch
 Patch1:    qmailadmin-vpop-nouser.patch
+Patch2:    qmailadmin-bounce-fix.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:  bzip2
@@ -75,6 +76,7 @@ support via the users language settings on their browser.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # Export compiler flags
 #----------------------------------------------------------------------------
@@ -163,6 +165,8 @@ rm -rf %{buildroot}
 #------------------------------------------------------------------------------
 %changelog
 #------------------------------------------------------------------------------
+* Tue Aug  5 2014 Eric Shubert <eric@datamatters.us> 1.2.16-1.qt
+- Fixed catchall functions by patching command.c source (permanently this time)
 * Fri Nov 15 2013 Eric Shubert <eric@datamatters.us> 1.2.16-0.qt
 - Migrated to github
 - Removed -toaster designation

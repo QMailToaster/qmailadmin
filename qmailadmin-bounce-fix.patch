@@ -1,0 +1,10 @@
+--- qmailadmin-1.2.16/command.c	2011-02-22 07:45:48.000000000 -0700
++++ qmailadmin-1.2.16-patched/command.c	2014-08-05 16:30:15.000000000 -0700
+@@ -34,6 +34,7 @@
+ #include "autorespond.h"
+ #include "cgi.h"
+ #include "command.h"
++#include "config.h"
+ #include "forward.h"
+ #include "mailinglist.h"
+ #include "printh.h"
